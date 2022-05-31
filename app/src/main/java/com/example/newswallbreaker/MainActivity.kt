@@ -1,11 +1,9 @@
 package com.example.newswallbreaker
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Base64
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -15,10 +13,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val myWebView: WebView = findViewById(R.id.webview)
+        val settings: WebSettings = myWebView.getSettings()
+        settings.domStorageEnabled = true
 
-        val unencodedHtml = """<html><body>Open a page with paywall in a browser > Select ... > Share... > Choose NewsWallBreaker </body></html>""";
-        val encodedHtml = Base64.encodeToString(unencodedHtml.toByteArray(), Base64.NO_PADDING)
-        myWebView.loadData(encodedHtml, "text/html", "base64")
+        myWebView.settings.javaScriptEnabled = true
+        myWebView.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                return false
+            }
+        }
+        myWebView.getSettings().setBuiltInZoomControls(true);
+
+        val urlString = "https://3wallbreakers.notion.site/News-Wall-Breaker-on-Android-91e63abff59146b9aec89299f0504e41"
+        myWebView.loadUrl(urlString)
     }
 
 }
