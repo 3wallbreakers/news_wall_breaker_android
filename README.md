@@ -1,1 +1,1 @@
-More details: https://wallbreakers.notion.site/News-Wall-Breaker-63214558b72349e9b33651f794ee3e42
+More details: https://3wallbreakers.notion.site/News-Wall-Breaker-on-Android-91e63abff59146b9aec89299f0504e41
