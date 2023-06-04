@@ -46,7 +46,7 @@ class BrowserActivity : AppCompatActivity() {
     private fun handleShareIntent() {
         if (intent?.action == Intent.ACTION_SEND) {
             intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
-                val urlString = "https://3wallbreakers.deta.dev/news_wall_breaker/?url=" + it
+                val urlString = "https://archive.ph/submit/?url=" + it
                 val myWebView: WebView = findViewById(R.id.webview)
                 myWebView.loadUrl(urlString)
             }
